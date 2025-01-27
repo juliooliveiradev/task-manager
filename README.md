@@ -1,73 +1,87 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# **Task Manager - Backend**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este repositório contém o código do backend do sistema **Task Manager**, desenvolvido com **NestJS** e utilizando **TypeORM** para gerenciar dados no banco **PostgreSQL**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## **Tecnologias Utilizadas**
+- **NestJS**: Framework Node.js para construção de APIs escaláveis.
+- **TypeORM**: ORM para mapeamento de dados.
+- **PostgreSQL**: Banco de dados relacional.
+- **TypeScript**: Tipagem estática para maior segurança no código.
+- **Jest**: Framework de testes.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Installation
+## **Pré-requisitos**
+- **Node.js** (>= 18.18.0 ou superior).
+- **PostgreSQL** instalado e configurado.
+- **Yarn** ou **npm** para gerenciar pacotes.
 
-```bash
-$ npm install
-```
+---
 
-## Running the app
+## **Instalação e Configuração**
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/task-manager-backend.git
+   cd task-manager-backend
+2. Instale as dependências:
+````
+npm install
+````
+3. Configure o banco de dados no arquivo .env:
+````
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=sua-senha
+DB_NAME=task_manager
+````
+4. Execute as migrações do banco de dados:
+````
+npm run typeorm:migration:run
+````
+5. Inicie o servidor:
+````
+npm run start:dev
+````
 
-```bash
-# development
-$ npm run start
+O backend estará rodando em http://localhost:3000.
 
-# watch mode
-$ npm run start:dev
+Estrutura do Projeto
+````
+src/
+├── auth/                  # Módulo de autenticação
+├── tasks/                 # Módulo de gerenciamento de tarefas
+│   ├── task.controller.ts # Controlador das tarefas
+│   ├── task.service.ts    # Serviço das tarefas
+│   └── task.entity.ts     # Entidade Task
+├── app.module.ts          # Configuração principal do aplicativo
+├── main.ts                # Arquivo de inicialização
+└── config/                # Configurações adicionais
+````
+# Funcionalidades
+API RESTful para CRUD de tarefas.
+- Integração com PostgreSQL usando TypeORM.
+- Testes unitários configurados com Jest (em progresso).
+  
+# Como Contribuir
 
-# production mode
-$ npm run start:prod
-```
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature:
+````
+git checkout -b feature/nova-feature
+````
+3. Faça o commit das alterações:
+````
+git commit -m "Adicionada nova feature"
+````
+4. Envie para o repositório remoto:
+````
+git push origin feature/nova-feature
+````
+5. Abra um Pull Request.
 
-## Test
+# Licença
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Este projeto está licenciado sob a MIT License. Consulte o arquivo LICENSE para mais informações.
